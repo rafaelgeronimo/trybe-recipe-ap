@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import Context from './Context';
+import RecipeContext from './RecipeContext';
 
 function RecipeProvider({ children }) {
   const [recipes, setRecipes] = useState([]);
-
+  const [redirect, setRedirect] = useState(null);
+  const [favoriteRecipes, setFavoriteRecipes] = useState([]);
   const contextValue = {
     recipes,
     setRecipes,
+    redirect,
+    setRedirect,
+    favoriteRecipes,
+    setFavoriteRecipes,
   };
-
   return (
-    <Context.Provider value={ contextValue }>
+    <RecipeContext.Provider value={ contextValue }>
       { children }
-    </Context.Provider>
+    </RecipeContext.Provider>
   );
 }
 

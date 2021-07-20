@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import Context from './Context';
+import UserContext from './UserContext';
 
 function UserProvider({ children }) {
   const [email, setEmail] = useState('');
 
   return (
-    <Context.Provider value={ { email, setEmail } }>
+    <UserContext.Provider value={ { email, setEmail } }>
       { children }
-    </Context.Provider>
+    </UserContext.Provider>
   );
 }
 

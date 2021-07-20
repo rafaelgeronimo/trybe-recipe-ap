@@ -1,16 +1,19 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
-import Login from './pages/Login';
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Routes from './services/Routes';
+
 import UserProvider from './context/UserProvider';
 import RecipeProvider from './context/RecipeProvider';
-import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
     <RecipeProvider>
       <UserProvider>
         <BrowserRouter>
-          <Login />
+          <Routes />
         </BrowserRouter>
       </UserProvider>
     </RecipeProvider>
