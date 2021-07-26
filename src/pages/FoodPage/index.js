@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Spinner } from 'react-bootstrap';
 import RecipeContext from '../../context/RecipeContext';
 import {
   initialFoods, getCategoriesFoods, foodsByCategory } from '../../services/apiRequests';
@@ -7,6 +8,7 @@ import Header from '../../components/Header';
 import FooterMenu from '../../components/footerMenu';
 import RecipeCardFood from '../../components/RecipeCardFood';
 import CategoriesButtons from '../../components/CategoriesButtons';
+import './css/FoodPage.css';
 
 function FoodPage() {
   document.title = 'Comidas';
@@ -16,7 +18,6 @@ function FoodPage() {
   const [choosedCategory, toggleCategory] = useState(null);
 
   useEffect(() => {
-    setIsLoading(true);
     getCategoriesFoods(setCategories);
     if (redirect !== 'from-explore') {
       initialFoods(setRecipes);
@@ -41,20 +42,24 @@ function FoodPage() {
   return (
     <section>
       <Header searchBar="true" type="food" />
-      { categories
-        && <CategoriesButtons
+      { !isLoading ? (
+        <CategoriesButtons
           categories={ categories }
           toggleCategory={ toggleCategory }
-        /> }
-      { !isLoading && recipes
-        .filter((_, index) => index <= maxLength)
-        .map((meal, index) => (
-          <RecipeCardFood
-            key={ meal.idMeal }
-            meal={ meal }
-            index={ index }
-          />
-        ))}
+        />)
+        : <Spinner animation="border" /> }
+      <main className="recipes-card-conteiner">
+        { !isLoading ? recipes
+          .filter((_, index) => index <= maxLength)
+          .map((meal, index) => (
+            <RecipeCardFood
+              key={ meal.idMeal }
+              meal={ meal }
+              index={ index }
+            />
+          ))
+          : <Spinner animation="border" />}
+      </main>
       <FooterMenu />
       { redirect }
     </section>

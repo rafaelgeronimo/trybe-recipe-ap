@@ -1,38 +1,98 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.meals {
+  align-items: center;
+  background: #0fa36b;
+  color: #464646;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  font-family: sans-serif;
+  height: 100vh;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.recipes-card-conteiner {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.recipe-card {
+  border-radius: 12rem;
+  margin: 10px;
+  text-align: center;
+  width: 150px;
+}
+
+.recipe-card-body {
+  align-items: center;
+  background-color: #43635683;
+  color: #C2FA6E;
+  display: flex;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  height: 100%;
+  justify-content: center;
+  text-shadow: 1px 1px #566e31;
+  position: absolute;
+  width: 100%;
+}
+
+.category-label input[type="radio"]  {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+.category-label {
+  background-color: #2e7d5c;
+  border: 2px solid #54e3a7;
+  border-radius: 6px;
+  color: #9be8c8;
+  font-family: sans-serif, Arial;
+  font-size: 12px;
+  padding: 10px 10px;
+}
+
+.category-form {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+footer {
+  align-items: center;
+  background-color: #2e7d5c;
+  bottom: 0%;
+  position: fixed;
+  width: 100%;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer-content button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  outline: inherit;
+  padding: 0;
+}
+
+.footer-img {
+  filter: invert(80%);
+}
+
+.footer-img:hover {
+  filter:drop-shadow( 3px 3px 4px #575757)
 }
